@@ -39,7 +39,9 @@ for i = 1:size(E, 1),
             % Hint: You might find it helpful to use IndexToAssignment
             %       and SetValueOfAssignment
             %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-            
+            assignments_Fj   = IndexToAssignment(1:length(F(j).val), F(j).card);
+            zero_indxs_Fj    = ~(assignments_Fj(:, indx) == x);
+            F(j)             = SetValueOfAssignment(F(j), assignments_Fj(zero_indxs_Fj, :), 0);
             %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 				% Check validity of evidence / resulting factor
